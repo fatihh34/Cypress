@@ -1,5 +1,7 @@
 //const { it } = require("mocha")
 
+import { should } from "chai";
+
 describe("ilk test",()=>{
 
 
@@ -13,6 +15,8 @@ describe("ilk test",()=>{
     it('url i kontrol et', () => {
         
         cy.url().should('include', 'amazon')
+        cy.title().should('include', 'Amazon')
+
     });
 
     it("konrol yap", () => {
@@ -50,3 +54,28 @@ describe("ilk test",()=>{
 
 
 })
+
+describe.only("Amazon urun arama",function(){
+ it('Anasayfaya git', () => {
+    
+
+    cy.visit("/")
+    cy.url().should('include','amazon')
+    
+ });
+
+  it('find searchbox and type something', () => {
+    const searchbox ="alcatel";
+
+    cy.get('#twotabsearchtextbox').type(searchbox).type('{enter}')
+    //cy.get('#nav-search-submit-button').click()
+
+    it('arama sonuclarini dogrula', () => {
+        cy.get('.sg-col-14-of-20 > .sg-col-inner > .a-section > :nth-child(1)').should('include','5000')
+    });
+    
+  });
+
+
+}
+)
