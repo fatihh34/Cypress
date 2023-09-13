@@ -8,7 +8,10 @@ module.exports = defineConfig({
       // implement node event listeners here
     },
 
-baseUrl: "https://www.amazon.com/"
+baseUrl: "https://www.amazon.com/",
+viewportWidth: 1280,
+viewportHeight: 720
+
 
   },
 });
