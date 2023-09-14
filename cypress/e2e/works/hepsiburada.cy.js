@@ -1,14 +1,14 @@
 
 describe('hepsiburada',()=>{
 
-/*beforeEach(()=>{
+beforeEach(()=>{
 
 cy.visit("https://www.cimri.com.tr")
 
 
 
 
-});*/
+});
 
 
 /*afterEach(()=>{
@@ -20,13 +20,18 @@ cy.visit("https://www.cimri.com.tr")
 it('cimri website should be verify', () => {
     
     //cy.url().should("eq", "https://www.cimri.com.tr");
-    cy.title().should("include", "cimri");
+    cy.title().should('include', "Cimri");
 
 });
 
 it('should searching', () => {
 
-    cy.get('#search-input').click();
+    const expected ="iphone 15"
+
+    cy.get('.SearchBox_searchBarPlaceholder__bWMWC').click();
+    cy.get('#search-input').type(expected);
+    cy.wait(2000);
+    cy.contains('i phone 15').click()
     
     
 });
